@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:80
--- Generation Time: Jul 04, 2021 at 05:13 PM
+-- Generation Time: Aug 26, 2021 at 04:33 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 7.3.26
 
@@ -45,19 +45,9 @@ INSERT INTO `adminDetails` (`UID`, `user_id`, `username`, `password`, `email`, `
 (2, 4, 'Amas', '202cb962ac59075b964b07152d234b70', 'ams@yahoo.com', 'Admin'),
 (3, 17, 'Farhath', '202cb962ac59075b964b07152d234b70', 'farhath@gmail.com', 'Admin'),
 (5, 9, 'Nawrin', '202cb962ac59075b964b07152d234b70', 'Nwrn@gmail.com', 'Editor'),
-(26, 19, 'Siyaj', '202cb962ac59075b964b07152d234b70', 'sj@gm.com', 'Editor');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `blog`
---
-
-CREATE TABLE `blog` (
-  `BID` int(11) NOT NULL,
-  `BTITLE` varchar(100) NOT NULL,
-  `BBODY` varchar(5000) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+(26, 19, 'Siyaj', '202cb962ac59075b964b07152d234b70', 'sj@gm.com', 'Editor'),
+(27, 19, 'Nusaif', '202cb962ac59075b964b07152d234b70', 'nusaif@gmail.com', 'Marketing Analysist'),
+(28, 8, 'Amazir', '202cb962ac59075b964b07152d234b70', 'Ama@gmail.com', 'Marketing Analysist');
 
 -- --------------------------------------------------------
 
@@ -79,7 +69,8 @@ INSERT INTO `customer` (`id`, `email`, `password`) VALUES
 (2, 'aj@gmail.com', '$2y$10$Y.kx55wrm7Ssd3LWzy7qtOR0fIIfuCrYTdWo3J04mYvQoGgAVSbVa'),
 (3, 'nawrin@gmail.com', '$2y$10$ThnDLqY9Q/Usdw6/W/HnxeDiwlXNjZOl2Nx29xG.iM/MDOvMRB9Ei'),
 (5, 'afraj@gmail.com', '$2y$10$tcNFyYHQfEA.sM8JxcvETemaVjHlZUmXzAbxnUlbTY0gxLJ6IuNrW'),
-(6, 'amas@gmail.com', '$2y$10$DB6F2nUT0nq3rev.4zJm2unIRkppRBVAbFLaks5IPAmpxE1aGE/f6');
+(6, 'amas@gmail.com', '$2y$10$DB6F2nUT0nq3rev.4zJm2unIRkppRBVAbFLaks5IPAmpxE1aGE/f6'),
+(7, 'farhath@gmail.com', '$2y$10$7bv4J.jeA8/6u6YazP4V0uB9aGsTX4wVRNsE88u2C.1IAg1HXRdFS');
 
 -- --------------------------------------------------------
 
@@ -106,22 +97,32 @@ CREATE TABLE `customer_data` (
 
 INSERT INTO `customer_data` (`id`, `userid`, `firstname`, `lastname`, `company`, `address1`, `address2`, `city`, `zip`, `mobile`) VALUES
 (1, 2, 'Afraj', 'M.A.M ', 'aaa', 'ANS', 'FD', 'ASD', '12', '4323221'),
-(3, 6, 'M.J.A', 'Amas', 'aa', 'aa', 'aa', 'aa', '111', '121221'),
-(4, 5, 'M.A.M ', 'Afraj', 'AJCOMPANY', 'Nangalla,', 'Thulhiriya', 'Warakapola', '123', '35953'),
-(5, 3, 'nawrin', 'mani', 'aaa', 'akp', 'Akkaraipatru', 'Akp', '12', '1212');
+(3, 6, 'M.J.A', 'Amas', 'Amas Co', 'Ottamavadi', 'Sri Lanka', 'Ottamavadi', '111', '121221'),
+(4, 5, 'M.A.M ', 'Afraj', 'AJCOMPANY', 'Nangalla,', 'Thulhiriya', 'Warakapola', '713101', '0792435952'),
+(5, 3, 'Nawrin', 'JR', 'nawrin(pvt) Ltd', '123,MainStreet,', '2nd Cross', 'Akkaraipatru', '71332', '0731122122'),
+(6, 7, 'AKLM', 'Farhath', 'Farhath&Co', 'Kandhakuli', 'Kalpitiya', 'Puttlam', '1111', '1111');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `orderDetails`
+-- Table structure for table `data`
 --
 
-CREATE TABLE `orderDetails` (
-  `orderID` int(11) NOT NULL,
-  `orderDate` date NOT NULL,
-  `customerID` int(11) NOT NULL,
-  `quantity` int(11) NOT NULL
+CREATE TABLE `data` (
+  `id` int(11) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `content` longtext NOT NULL,
+  `images` varchar(1000) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `data`
+--
+
+INSERT INTO `data` (`id`, `title`, `content`, `images`) VALUES
+(11, 'Mobile phone and laptop price hike ', 'Mobile phone prices were rapidly increased due to the latest government policy change on exporting luxury items which includes mobile phones and laptops.\r\nBut in this 21st century Phones and Laptop should not be considered as luxury indeed should consider them as essential items. \r\nThis will help people from Kindergarten to senior citizens.\r\n', 'mobiSet.jpg'),
+(27, 'Angular JS', 'Angular is a TypeScript-based free and open-source web application framework led by the Angular Team at Google and by a community of individuals and corporations. Angular is a complete rewrite from the same team that built AngularJS. AngularJS is a toolset for building the framework most suited to your application development. It is fully extensible and works well with other libraries. Every feature can be modified or replaced to suit your unique development workflow and feature needs. \r\n\r\nDifferences between Angular and AngularJS\r\n\r\nArchitecture of an Angular application. The main building blocks are modules, components, templates, metadata, data binding, directives, services, and dependency injection.\r\nGoogle designed Angular as a ground-up rewrite of AngularJS.\r\nAngular is used as the frontend of the MEAN stack, consisting of MongoDB database, Express.js web application server framework, Angular itself (or AngularJS), and Node.js server runtime environment.\r\n', 'angularjs-logo-blog-header_0.jpg'),
+(30, 'iPhone 14 Pro Max', 'Apple iPhone 14 Pro Max is the upcoming mobile from Apple that is expected to be launched in India on October 31, 2022 (Expected). The mobile will come with adequate specifications and decent specifications. Apple iPhone 14 Pro Max is available with 6 GB RAM and 128 GB of internal storage capacity. Apple iPhone 14 Pro Max features a 6.7 inches (17.01 cm) display with a screen resolution of 1284 x 2778 Pixels.', 'maxresdefault.jpg');
 
 -- --------------------------------------------------------
 
@@ -160,7 +161,40 @@ INSERT INTO `orderItems` (`orderid`, `productid`, `quantity`, `productprice`) VA
 (34, 0, 3, 85000),
 (35, 0, 3, 67000),
 (36, 0, 1, 67000),
-(37, 0, 2, 67000);
+(37, 0, 2, 67000),
+(38, 0, 1, 67000),
+(39, 0, 2, 85000),
+(41, 0, 2, 85000),
+(42, 0, 2, 85000),
+(43, 0, 2, 67000),
+(44, 0, 2, 450),
+(45, 0, 1, 67000),
+(46, 0, 2, 67000),
+(47, 0, 2, 70000),
+(48, 0, 2, 450),
+(49, 0, 1, 67000),
+(50, 0, 2, 67000),
+(51, 0, 2, 85000),
+(52, 0, 1, 67000),
+(53, 0, 1, 67000),
+(54, 0, 1, 67000),
+(55, 0, 1, 70000),
+(56, 0, 1, 67000),
+(57, 0, 2, 450),
+(58, 0, 2, 33500),
+(59, 0, 2, 70000),
+(60, 0, 1, 67000),
+(61, 0, 1, 67000),
+(62, 0, 3, 67000),
+(63, 0, 2, 67000),
+(64, 0, 1, 67000),
+(65, 0, 1, 85000),
+(68, 0, 1, 85000),
+(69, 0, 1, 450),
+(70, 0, 1, 70000),
+(71, 0, 1, 67000),
+(72, 0, 2, 67000),
+(73, 0, 1, 67000);
 
 -- --------------------------------------------------------
 
@@ -174,7 +208,7 @@ CREATE TABLE `orders` (
   `totalprice` int(11) NOT NULL,
   `orderstatus` varchar(100) NOT NULL,
   `paymentmode` varchar(100) NOT NULL,
-  `timestamp` date NOT NULL DEFAULT current_timestamp()
+  `timestamp` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -182,12 +216,33 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`id`, `userid`, `totalprice`, `orderstatus`, `paymentmode`, `timestamp`) VALUES
-(1, 2, 736000, 'Order Placed', 'COD', '2021-07-04'),
-(2, 2, 736000, 'Order Placed', 'COD', '2021-07-04'),
-(29, 6, 134000, 'Order Placed', 'COD', '2021-07-04'),
-(35, 5, 201000, 'Cancelled', 'COD', '2021-07-04'),
-(36, 5, 67000, 'Cancelled', 'COD', '2021-07-04'),
-(37, 5, 134000, 'Cancelled', 'Paypal', '2021-07-04');
+(1, 2, 736000, 'Order Placed', 'COD', '2021-06-04 00:00:00'),
+(2, 2, 736000, 'Order Placed', 'COD', '2021-06-04 00:00:00'),
+(43, 5, 227998, 'Cancelled', 'Cheque', '2021-07-05 11:57:04'),
+(44, 5, 900, 'Cancelled', 'Paypal', '2021-05-05 12:39:57'),
+(45, 5, 782996, 'Cancelled', 'Cheque', '2021-07-06 00:19:03'),
+(46, 5, 134000, 'Order Placed', 'COD', '2021-04-06 13:11:40'),
+(47, 3, 140000, 'Order Placed', 'Cheque', '2021-05-06 13:26:40'),
+(48, 5, 900, 'Order Placed', 'Paypal', '2021-07-10 12:48:40'),
+(49, 3, 67000, 'Order Placed', 'Paypal', '2021-07-10 13:00:44'),
+(50, 6, 134000, 'Order Placed', 'Paypal', '2021-07-10 15:28:31'),
+(51, 7, 170000, 'Cancelled', 'COD', '2021-07-10 15:29:35'),
+(53, 7, 67000, 'Order Placed', 'Paypal', '2021-07-11 01:48:52'),
+(54, 5, 67000, 'Order Placed', 'Cheque', '2021-07-11 14:28:19'),
+(55, 5, 70000, 'Order Placed', 'Paypal', '2021-07-16 17:11:15'),
+(56, 5, 67000, 'Order Placed', 'Paypal', '2021-07-16 17:22:21'),
+(57, 5, 900, 'Order Placed', 'COD', '2021-08-21 19:23:02'),
+(58, 5, 67900, 'Order Placed', 'Cheque', '2021-08-21 19:24:03'),
+(59, 5, 140000, 'Order Placed', 'COD', '2021-08-22 18:02:34'),
+(60, 5, 237000, 'Cancelled', 'COD', '2021-08-23 00:41:36'),
+(61, 5, 67000, 'Cancelled', 'COD', '2021-08-23 00:46:26'),
+(62, 6, 201000, 'Order Placed', 'Cheque', '2021-08-23 00:51:26'),
+(63, 5, 134000, 'Order Placed', 'COD', '2021-08-23 15:46:15'),
+(69, 7, 450, 'Order Placed', 'COD', '2021-08-24 14:24:12'),
+(70, 7, 70000, 'Cancelled', '', '2021-08-24 14:25:46'),
+(71, 5, 152000, 'Order Placed', 'Paypal', '2021-08-24 16:53:18'),
+(72, 3, 134000, 'Order Placed', 'COD', '2021-08-24 16:56:10'),
+(73, 5, 67000, 'Order Placed', 'COD', '2021-08-24 21:52:25');
 
 -- --------------------------------------------------------
 
@@ -209,7 +264,16 @@ CREATE TABLE `ordersTracking` (
 INSERT INTO `ordersTracking` (`id`, `orderid`, `status`, `reason`) VALUES
 (1, '30', 'cancelled', 'aa'),
 (2, '32', 'cancelled', ''),
-(7, '37', 'cancelled', 'I Dont Like it anymore\r\n');
+(7, '37', 'cancelled', 'I Dont Like it anymore\r\n'),
+(8, '39', 'cancelled', 'abc'),
+(12, '43', 'cancelled', 'aa'),
+(13, '44', 'cancelled', 'a'),
+(14, '45', 'cancelled', 'a'),
+(15, '51', 'cancelled', ''),
+(16, '52', 'cancelled', ''),
+(17, '60', 'cancelled', 'Not interested anymore'),
+(18, '61', 'cancelled', 'cancel'),
+(23, '70', 'cancelled', 'aaa');
 
 -- --------------------------------------------------------
 
@@ -254,30 +318,35 @@ INSERT INTO `product` (`ID`, `PNAME`, `BNAME`, `CATEGORY`, `PRICE`, `STORAGE`, `
 (59, 'Tempred Glasses', ' - ', 'Tempered', 450, NULL, NULL, NULL, NULL, NULL, '5D-9d-10d-11d-21d-22D-Full-Glue-Full-Cover-Tempered-Glass-Screen-Protector-for-Tecno-F3-F3-PRO-Pop-1.jpg', 100, 'Available for all types of mobile phones'),
 (61, 'Galaxy S9', 'Samsung', 'Mobile', 58000, '64', 8, '5.67 Inch', 2300, 3, 'galaxy-s9-plus-render.jpg', 43, 'Good quality Mobile'),
 (62, 'Galaxy S20', 'Samsung', 'Mobile', 120500, '256', 64, '6.2 Inch', 4000, 8, 'samsung-galaxy-s20-8-gb-128-gb-cosmic-grey.jpg', 20, '   abcd'),
-(63, 'Nova 7i', 'Huawei', 'Mobile', 45000, '64', 48, '5.2 Inch', 4000, 8, 'Huawei-Nova-7i-8GB-RAM-128GB-01.jpg', 3, 'cvcc'),
 (64, 'P30 Lite', 'Huawei', 'Mobile', 32000, '64', 24, '5.1 Inch', 3300, 4, 'huawei-p30-lite-4g-128gb-dual-sim-azul.jpg', 4, 'Good Quality Mobile'),
 (65, '9T', 'Redmi', 'Mobile', 35999, '64', 8, '5.67 Inch', 2300, 3, 'f42ad8e6e172594ddb9b8e49cb5bcc90.jpg', 8, 'aa'),
-(66, 'Note 8 Pro', 'Redmi', 'Mobile', 43500, '128', 8, '5.56 Inch', 5000, 8, 'Xiaomi-Redmi-Note-8-Pro-with-64GB-6GB-RAM-4500mAh-white-color.jpg', 3, 'pass');
+(66, 'Note 8 Pro', 'Redmi', 'Mobile', 43500, '128', 8, '5.56 Inch', 5000, 8, 'Xiaomi-Redmi-Note-8-Pro-with-64GB-6GB-RAM-4500mAh-white-color.jpg', 3, 'pass'),
+(68, 'Nova 7i', 'Huawei', 'Mobile', 49000, '64', 12, '6.4inch', 4500, 8, 'nova-7i.jpg', 3, 'aa');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `wishList`
+-- Table structure for table `wishlist`
 --
 
-CREATE TABLE `wishList` (
-  `WishID` int(11) NOT NULL,
-  `C_ID` int(11) NOT NULL,
-  `ProductID` int(11) NOT NULL,
-  `PNAME` varchar(110) NOT NULL
+CREATE TABLE `wishlist` (
+  `id` int(11) NOT NULL,
+  `pid` int(11) NOT NULL,
+  `uid` int(11) NOT NULL,
+  `timestamp` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `wishList`
+-- Dumping data for table `wishlist`
 --
 
-INSERT INTO `wishList` (`WishID`, `C_ID`, `ProductID`, `PNAME`) VALUES
-(1, 0, 2, 'Apple');
+INSERT INTO `wishlist` (`id`, `pid`, `uid`, `timestamp`) VALUES
+(27, 1, 3, '2021-07-10 12:57:33'),
+(28, 57, 3, '2021-07-10 12:57:51'),
+(29, 1, 6, '2021-07-10 15:28:47'),
+(32, 6, 5, '2021-08-23 15:52:27'),
+(33, 3, 5, '2021-08-23 20:23:53'),
+(34, 65, 7, '2021-08-23 20:24:17');
 
 --
 -- Indexes for dumped tables
@@ -302,10 +371,10 @@ ALTER TABLE `customer_data`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `orderDetails`
+-- Indexes for table `data`
 --
-ALTER TABLE `orderDetails`
-  ADD PRIMARY KEY (`orderID`);
+ALTER TABLE `data`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `orderItems`
@@ -332,11 +401,10 @@ ALTER TABLE `product`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Indexes for table `wishList`
+-- Indexes for table `wishlist`
 --
-ALTER TABLE `wishList`
-  ADD PRIMARY KEY (`WishID`),
-  ADD KEY `fk_C_ID` (`C_ID`);
+ALTER TABLE `wishlist`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -346,49 +414,49 @@ ALTER TABLE `wishList`
 -- AUTO_INCREMENT for table `adminDetails`
 --
 ALTER TABLE `adminDetails`
-  MODIFY `UID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `UID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `customer_data`
 --
 ALTER TABLE `customer_data`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `orderDetails`
+-- AUTO_INCREMENT for table `data`
 --
-ALTER TABLE `orderDetails`
-  MODIFY `orderID` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `data`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
 
 --
 -- AUTO_INCREMENT for table `ordersTracking`
 --
 ALTER TABLE `ordersTracking`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
 
 --
--- AUTO_INCREMENT for table `wishList`
+-- AUTO_INCREMENT for table `wishlist`
 --
-ALTER TABLE `wishList`
-  MODIFY `WishID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+ALTER TABLE `wishlist`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
